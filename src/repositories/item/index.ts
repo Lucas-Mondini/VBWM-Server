@@ -20,7 +20,7 @@ export default class ItemRepository extends Repository implements IItemRepositor
     create = async (data: any): Promise<Object> => {
         data = {
             name: data.name,
-            ammount: data.ammount,
+            amount: data.amount,
             transform: await this.transformRepository.create(data.transform)
         }
 
@@ -31,7 +31,7 @@ export default class ItemRepository extends Repository implements IItemRepositor
         const item =  await this.repository.findOneOrFail({where: {id: id}, relations: this.relations}) as Item;
         data = {
             name: data.name,
-            ammount: data.ammount,
+            amount: data.amount,
             transform: await this.transformRepository.update(item.transform.id, data.transform)
         }
         

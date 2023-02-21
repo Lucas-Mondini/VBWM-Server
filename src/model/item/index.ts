@@ -13,7 +13,7 @@ class Item extends Model {
     name: string;
 
     @Column({nullable: false, type: 'bigint' })
-    ammount: number = 1
+    amount: number = 1
 
     @OneToOne(()=> Transform, {onDelete: 'CASCADE', nullable: false})
     @JoinColumn({referencedColumnName: "id"})
